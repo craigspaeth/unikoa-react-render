@@ -1,17 +1,6 @@
-# unikoa-react-render
-
-**NOTE: This is a WIP and not production ready yet**
-
-[Unikoa](https://github.com/craigspaeth/unikoa) middleware for rendering React apps universally
-
-## Example
-
-Create head and body components, and specify script tags, and Unikoa React Render will render those components on the server, then re-render the body on the client.
-
-````javascript
 const unikoa = require('unikoa')
+const unikoaReactRender = require('../')
 const React = require('react')
-const unikoaReactRender = require('unikoa-react-render')
 
 const $ = React.DOM
 const router = module.exports = unikoa()
@@ -37,17 +26,10 @@ const Body = React.createClass({
   }
 })
 
+router.get('/', (ctx, next) => next()) // TODO: Shouldn't need this?
+
 router.use(unikoaReactRender({
   head: Head,
   body: Body,
   scripts: ['/bundle.js']
 }))
-````
-
-## Contributing
-
-Please fork the project and submit a pull request with tests. Install node modules `npm install` and run tests with `npm test`.
-
-## License
-
-MIT
