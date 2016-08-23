@@ -12,10 +12,10 @@ module.exports = ({ head: Head, body: Body, scripts, subscribe }) =>
       const renderBody = process.env.UNIKOA_RENDER_SERVER !== 'false'
       ctx.body = renderToString(
         html({},
-          head({}, Head),
+          head({}, React.createElement(Head, null)),
           body({},
             div({ id: ID }, renderBody && React.createElement(Body, null)),
-          typeof scripts[0] === 'string'
+          scripts && typeof scripts[0] === 'string'
             ? scripts.map((src) => script({ src }))
             : scripts))
       )

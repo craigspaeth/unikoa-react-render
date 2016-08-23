@@ -1,9 +1,17 @@
 /* eslint-env mocha */
 const unikoaReactRender = require('./')
+const React = require('react')
+
+const $ = React.DOM
 
 describe('on the server', () => {
-  it('foos', () => {
-    console.log(unikoaReactRender)
+  it('renders a head element', () => {
+    const ctx = {}
+    unikoaReactRender({
+      head: () => $.title({}, 'Hello World'),
+      body: () => $.div()
+    })(ctx, () => {})
+    ctx.body.should.containEql('Hello World')
   })
 })
 
