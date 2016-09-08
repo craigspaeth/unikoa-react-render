@@ -11,6 +11,7 @@ describe('on the server', () => {
       head: () => $.title({}, 'Hello World'),
       body: () => $.div()
     })(ctx, () => {})
+    ctx.render()
     ctx.body.should.containEql('Hello World')
   })
 })

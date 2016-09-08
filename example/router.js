@@ -26,10 +26,13 @@ const Body = React.createClass({
   }
 })
 
-router.get('/', (ctx, next) => next()) // TODO: Shouldn't need this?
-
 router.use(unikoaReactRender({
   head: Head,
   body: Body,
-  scripts: ['/bundle.js']
+  scripts: ['/bundle.js'],
+  subscribe: (cb) => setInterval(cb, 3000)
 }))
+
+router.get('/', (ctx) => {
+  ctx.render({ body: Body })
+})

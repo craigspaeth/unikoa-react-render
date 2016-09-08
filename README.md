@@ -37,11 +37,18 @@ const Body = React.createClass({
   }
 })
 
+// Load middleware with defaults configured
 router.use(unikoaReactRender({
   head: Head,
   body: Body,
-  scripts: ['/bundle.js']
+  scripts: ['/bundle.js'],
+  subscribe: store.subscribe // Redux
 }))
+
+// Use ctx.render overidding defaults
+router.get('/article/:id', (ctx, next) => {
+  ctx.render({ body: Body })
+})
 ````
 
 ## Contributing
