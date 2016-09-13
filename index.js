@@ -2,7 +2,7 @@ const React = require('react')
 const { render } = require('react-dom')
 const { renderToString } = require('react-dom/server')
 
-const { html, head, body, div, script } = React.DOM
+const { html, body, div, script } = React.DOM
 const ID = 'unikoa-react-render-body'
 
 module.exports = (options) =>
@@ -15,7 +15,7 @@ module.exports = (options) =>
         const renderBody = process.env.UNIKOA_RENDER_SERVER !== 'false'
         ctx.body = renderToString(
           html({},
-            head({}, React.createElement(opts.head, null)),
+            React.createElement(opts.head, null),
             body({},
               div({ id: ID },
                 renderBody && React.createElement(opts.body, null)),

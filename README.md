@@ -18,7 +18,8 @@ const router = module.exports = unikoa()
 
 const Head = React.createClass({
   render: function () {
-    return $.title('Hello World')
+    return $.head({},
+      $.title('Hello World'))
   }
 })
 
