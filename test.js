@@ -14,6 +14,9 @@ describe('on the server', () => {
     ctx.render()
     ctx.body.should.containEql('Hello World')
   })
+  it('does not call next', () => {
+
+  })
 })
 
 describe('on the client', () => {
