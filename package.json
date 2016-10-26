@@ -1,6 +1,6 @@
 {
   "name": "unikoa-react-render",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Unikoa middleware for rendering React apps universally",
   "main": "index.js",
   "standard": {
